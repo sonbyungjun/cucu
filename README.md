@@ -22,7 +22,7 @@ Start your typescript-express-starter app in development mode at `http://localho
 $ cd "project name" && npm run dev
 ```
 
-### 2. CRUD generator
+### 3. CRUD generator
 
 ```bash
 $ cd "project name"/src/routes
