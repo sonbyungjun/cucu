@@ -4,7 +4,6 @@ TypeScript Express Starter With CRUD Generator
 ## ⚙️ Installation
 
 ```sh
-$ cd cucu
 $ npm install -g
 ```
 
