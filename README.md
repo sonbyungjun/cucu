@@ -16,7 +16,7 @@ $ cucu-starter "project name"
 
 ### 2. Select a templates 
 
-Start your typescript-express-starter app in development mode at `http://localhost:3000/`
+Start your cucu-starter app in swagger docs at `http://localhost:3000/docs`
 
 ```bash
 $ cd "project name" && npm run dev
