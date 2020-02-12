@@ -1,8 +1,8 @@
 {
   "name": "cucu-starter",
-  "version": "1.0.0",
-  "description": "Quick and easy TypeScript Express Starter package",
-  "author": "SIHO saint2030@naver.com",
+  "version": "1.0.1",
+  "description": "Quick and easy TypeScript Express Starter package with CRUD generator",
+  "author": "byungjunSon saint2030@naver.com",
   "license": "MIT",
   "main": "bin/cli.js",
   "keywords": [
@@ -10,7 +10,11 @@
     "express",
     "jest",
     "prettier",
-    "tsconfig"
+    "tsconfig",
+    "jwt",
+    "swagger",
+    "sequelize",
+    "passport"
   ],
   "scripts": {
     "typescript-starter": "node bin/cli.js",
@@ -18,8 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "cucu-starter": "bin/cli.js",
-    "crud": "bin/crud-generator/index.js"
+    "cucu-starter": "bin/cli.js"
   },
   "dependencies": {
     "chalk": "^3.0.0",

@@ -11,7 +11,6 @@ class UserController {
       const user = await this.userService.detail(req.user.id);
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
         user
       });
@@ -28,7 +27,6 @@ class UserController {
       });
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
       });
     } catch (e) {
@@ -43,7 +41,6 @@ class UserController {
       });
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
       });
     } catch (e) {

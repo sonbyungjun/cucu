@@ -24,7 +24,7 @@ class ${capitalizeFirstLetter(model.modelName)}Service {
   public async detail(id: string): Promise<${capitalizeFirstLetter(model.modelName)}> {
     const ${model.modelName} = await ${capitalizeFirstLetter(model.modelName)}.findOneScope(id);
     if (!${model.modelName}) {
-      throw new HttpException(203, true, '없는 데이터입니다.');
+      throw new HttpException(203, '없는 데이터입니다.');
     }
     return ${model.modelName};
   };
@@ -33,7 +33,7 @@ class ${capitalizeFirstLetter(model.modelName)}Service {
     const { id } = values;
     const ${model.modelName} = await ${capitalizeFirstLetter(model.modelName)}.findOneScope(id);
     if (!${model.modelName}) {
-      throw new HttpException(203, true, '없는 데이터입니다.');
+      throw new HttpException(203, '없는 데이터입니다.');
     }
     await ${model.modelName}.update(values);
   };
@@ -41,7 +41,7 @@ class ${capitalizeFirstLetter(model.modelName)}Service {
   public async remove(id: string): Promise<void> {
     const ${model.modelName} = await ${capitalizeFirstLetter(model.modelName)}.findOneScope(id);
     if (!${model.modelName}) {
-      throw new HttpException(203, true, '없는 데이터입니다.');
+      throw new HttpException(203, '없는 데이터입니다.');
     }
     await ${model.modelName}.destroy();
   };

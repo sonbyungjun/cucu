@@ -28,20 +28,6 @@ const memberQuestions = [
   { type: 'input', message: '코멘트를 입력해주세요.', name: 'comment'},
 ];
 
-(async function() {
-  let model;
-  let members = [];
-
-  model = await prompt(modelQuestions);
-
-  for (let i = 0; i < Number(model.memberCount); i++) {
-    const member = await prompt(memberQuestions);
-    members.push(member);
-  }
-
-  await parse(model, members);
-})();
-
 async function parse(model, member) {
   const modelFile = await modelParse(model, member);
   const routerFile = await routerParse(model, member);
@@ -51,12 +37,23 @@ async function parse(model, member) {
   const referenceFile = await referenceParse(model, member);
 
   console.log('생성중...');
-  fs.mkdirSync(`./${model.modelName}`);
-  fs.writeFileSync(`./${model.modelName}/${model.modelName}.model.ts`, modelFile);
-  fs.writeFileSync(`./${model.modelName}/${model.modelName}.route.ts`, routerFile);
-  fs.writeFileSync(`./${model.modelName}/${model.modelName}.controller.ts`, controllerFile);
-  fs.writeFileSync(`./${model.modelName}/${model.modelName}.service.ts`, serviceFile);
-  fs.writeFileSync(`./${model.modelName}/${model.modelName}.schema.ts`, schemaFile);
-  fs.writeFileSync(`./${model.modelName}/${model.modelName}.reference.ts`, referenceFile);
+  fs.mkdirSync(`./src/routes/${model.modelName}`);
+  fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.model.ts`, modelFile);
+  fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.route.ts`, routerFile);
+  fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.controller.ts`, controllerFile);
+  fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.service.ts`, serviceFile);
+  fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.schema.ts`, schemaFile);
+  fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.reference.ts`, referenceFile);
   console.log('생성 완료!');
 }
+
+module.exports = async function crudGenerator() {
+  let model;
+  let members = [];
+  model = await prompt(modelQuestions);
+  for (let i = 0; i < Number(model.memberCount); i++) {
+    const member = await prompt(memberQuestions);
+    members.push(member);
+  }
+  await parse(model, members);
+};

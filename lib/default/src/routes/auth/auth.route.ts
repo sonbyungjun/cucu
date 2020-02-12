@@ -39,9 +39,9 @@ class AuthRoute implements Route {
      *          schema:
      *            $ref: '#/definitions/success'
      *        202:
-     *          description: 회원가입 실패 ( 아이디 중복 )
-     *        400:
      *          description: 입력 형식 에러
+     *        209:
+     *          description: 회원가입 실패
      */
     this.router.post(`${this.path}/join`, validator.body(userSchema), this.authController.join);
 

@@ -3,7 +3,7 @@ import * as swaggerJsdoc from 'swagger-jsdoc';
 import * as express from 'express';
 const router = express.Router();
 import * as dotenv from 'dotenv';
-import {nestedStatic} from "../utils/util";
+import { nestedStatic } from '../utils/util';
 
 dotenv.config();
 
@@ -11,7 +11,6 @@ let folders = nestedStatic('./src/routes').map(f => f.staticPath + '/*.ts');
 folders.push('./swaggers/*.ts');
 
 const options = {
-  // swagger 문서 설정
   swaggerDefinition: {
     info: {
       title: `${process.env.PROJECT_NAME} API`,
@@ -21,7 +20,6 @@ const options = {
     host: `${process.env.SERVER_IP}:${process.env.PORT || 3000}`,
     basePath: '/',
   },
-  // swagger api 가 존재하는 곳 입니다.
   apis: folders,
 };
 

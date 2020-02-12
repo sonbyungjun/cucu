@@ -12,7 +12,6 @@ class AuthController {
       await this.authService.userCreate(req.body);
       res.status(200).json({
         status: 200,
-        result: true,
         message: 'success',
       });
     } catch (e) {
@@ -28,7 +27,6 @@ class AuthController {
       if (!user) {
         return res.json({
           status: 400,
-          result: false,
           message: info.message,
         });
       }
@@ -39,7 +37,6 @@ class AuthController {
         const token = this.authService.createJwt(user);
         return res.json({
           status: 200,
-          result: true,
           message: 'success',
           token,
         });

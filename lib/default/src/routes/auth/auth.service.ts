@@ -1,6 +1,7 @@
 import User from "../user/user.model";
 import * as jwt from "jsonwebtoken";
 import { Service } from "typedi";
+import HttpException from '../../exceptions/HttpException';
 
 @Service()
 class AuthService {
@@ -12,7 +13,7 @@ class AuthService {
       transaction = await User.sequelize.transaction({ autocommit: false });
       let exUser = await User.findOne({ where: { loginId } });
       if (exUser) {
-        throw new Error('이미 가입된 아이디 입니다.');
+        throw new HttpException(209, '이미 가입된 아이디 입니다.');
       }
       await User.create(user, { transaction });
       await transaction.commit();

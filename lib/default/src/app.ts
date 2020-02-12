@@ -39,7 +39,7 @@ class App {
   }
 
   private initializeMiddlewares() {
-    sequelizeInitialize();
+
     if (this.env) {
       this.app.use(hpp());
       this.app.use(helmet());
@@ -50,11 +50,11 @@ class App {
       this.app.use(cors({ origin: true, credentials: true }));
     }
 
+    sequelizeInitialize();
     passportConfig(passport);
     this.app.use(swaggerDoc);
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
-
   }
 
   private initializeRoutes(routes: Routes[]) {

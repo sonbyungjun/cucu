@@ -2,8 +2,8 @@ import { Sequelize } from 'sequelize-typescript';
 // @ts-ignore
 let env: 'production' | 'development' = process.env.NODE_ENV;
 import config from '../../config/config';
-import {fileNestedStatic} from "../utils/util";
-import User from "../routes/user/user.model";
+import { fileNestedStatic } from '../utils/util';
+import User from '../routes/user/user.model';
 
 export const sequelize = new Sequelize(config[env].database, config[env].username, config[env].password, {
   logging: config[env].options.logging,
@@ -23,9 +23,7 @@ export const sequelize = new Sequelize(config[env].database, config[env].usernam
 });
 
 export async function sequelizeInitialize() {
-
-  let files = fileNestedStatic('./src/routes')
-    .filter(f => (f.indexOf('.model.ts') > 0));
+  let files = fileNestedStatic('./src/routes').filter(f => f.indexOf('.model.ts') > 0);
   let models = [];
   for (let file of files) {
     file = file.replace('.ts', '');

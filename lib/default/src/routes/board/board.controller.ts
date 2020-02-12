@@ -12,7 +12,6 @@ class BoardController {
       });
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
       });
     } catch (e) {
@@ -28,7 +27,6 @@ class BoardController {
       });
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
         list
       });
@@ -42,7 +40,6 @@ class BoardController {
       const board = await this.boardService.detail(req.query.id);
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
         board
       });
@@ -59,7 +56,6 @@ class BoardController {
       });
       res.status(200).json({
         code: 200,
-        result: true,
         resultMsg: "success",
       });
     } catch (e) {
@@ -72,7 +68,6 @@ class BoardController {
       await this.boardService.remove(req.query.id);
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
       });
     } catch (e) {

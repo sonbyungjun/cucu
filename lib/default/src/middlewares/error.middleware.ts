@@ -4,14 +4,12 @@ function errorMiddleware(error: any, req: Request, res: Response, next: NextFunc
   console.error('[ERROR] ', error);
 
   const err = {
-    status: error.status || 209,
-    result: error.result || true,
+    status: error.status || 404,
     message: error.message || error.original || error.error.toString(),
   };
 
   if (error && error.error && error.error.isJoi) {
-    err.status = 203;
-    err.result = true;
+    err.status = 202;
   }
 
   res.status(err.status).json(err);

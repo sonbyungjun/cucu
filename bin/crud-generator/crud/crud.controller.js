@@ -15,7 +15,6 @@ class ${capitalizeFirstLetter(model.modelName)}Controller {
       });
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
       });
     } catch (e) {
@@ -31,7 +30,6 @@ class ${capitalizeFirstLetter(model.modelName)}Controller {
       });
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
         list
       });
@@ -45,7 +43,6 @@ class ${capitalizeFirstLetter(model.modelName)}Controller {
       const ${model.modelName} = await this.${model.modelName}Service.detail(req.query.id);
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
         ${model.modelName}
       });
@@ -62,7 +59,6 @@ class ${capitalizeFirstLetter(model.modelName)}Controller {
       });
       res.status(200).json({
         code: 200,
-        result: true,
         resultMsg: "success",
       });
     } catch (e) {
@@ -75,7 +71,6 @@ class ${capitalizeFirstLetter(model.modelName)}Controller {
       await this.${model.modelName}Service.remove(req.query.id);
       res.status(200).json({
         status: 200,
-        result: true,
         message: "success",
       });
     } catch (e) {
