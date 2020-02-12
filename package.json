@@ -1,6 +1,6 @@
 {
   "name": "cucu-starter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Quick and easy TypeScript Express Starter package with CRUD generator",
   "author": "byungjunSon saint2030@naver.com",
   "license": "MIT",

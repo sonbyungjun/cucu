@@ -4,7 +4,7 @@ TypeScript Express Starter With CRUD Generator
 ## ⚙️ Installation
 
 ```sh
-$ npm install -g
+$ npm install -g cucu-generator
 ```
 
 ### 1. Create the app
