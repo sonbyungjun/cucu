@@ -9,10 +9,10 @@ $ npm install -g cucu-generator
 
 ### Create the app
 
-<img src='https://github.com/sonbyungjun/cucu/blob/images/project-generator.gif' border='0' alt='example' />
+<img src='https://github.com/sonbyungjun/cucu/raw/images/project-generator.gif' border='0' alt='example' />
 
 ```bash
-$ cucu-starter
+$ cucu-generator
 ? Select a templates (Use arrow keys)
 ❯ crud-generator 
   cucu-project-starter 
@@ -29,21 +29,21 @@ $ cd "project name" && npm run dev
 
 Start your cucu-starter app in swagger docs at `http://localhost:3000/docs`
 
-<img src='https://github.com/sonbyungjun/cucu/blob/images/localhost_3000_docs.png' border='0' alt='example' />
+<img src='https://github.com/sonbyungjun/cucu/raw/images/localhost_3000_docs.png' border='0' alt='example' />
 
 ### Create the CRUD
 
-<img src='https://github.com/sonbyungjun/cucu/blob/images/crud-generator.gif' border='0' alt='example' />
+<img src='https://github.com/sonbyungjun/cucu/raw/images/crud-generator.gif' border='0' alt='example' />
 
 ```bash
-$ cucu-starter
+$ cucu-generator
 ? Select a templates (Use arrow keys)
   crud-generator 
 ❯ cucu-project-starter 
   ──────────────
 ```
 
-<img src='https://github.com/sonbyungjun/cucu/blob/images/person.jpg' border='0' alt='example' />
+<img src='https://github.com/sonbyungjun/cucu/raw/images/person.jpg' border='0' alt='example' />
 
 ### .env settings
 ```.env
