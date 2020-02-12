@@ -1,8 +1,8 @@
 {
   "name": "cucu-generator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Quick and easy TypeScript Express Starter package with CRUD generator",
-  "author": "byungjunSon saint2030@naver.com",
+  "author": "ByungjunSon saint2030@naver.com",
   "license": "MIT",
   "main": "bin/cli.js",
   "keywords": [
@@ -17,7 +17,7 @@
     "passport"
   ],
   "scripts": {
-    "typescript-starter": "node bin/clㅊi.js",
+    "cucu-generator": "node bin/cli.js",
     "start": "node bin/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

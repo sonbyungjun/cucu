@@ -6,9 +6,9 @@
  *   properties:
  *     status:
  *       type: string
- *       description: 서버코드
+ *       description: server code
  *     message:
  *       type: string
- *       description: 서버 메시지
+ *       description: server message
  */
 

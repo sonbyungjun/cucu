@@ -25,30 +25,30 @@ class ${capitalizeFirstLetter(model.modelName)}Route implements Route {
      *    post:
      *      tags:
      *      - ${model.modelName}
-     *      summary: (권한 - 로그인) ${model.modelComment} 등록
-     *      description: ${model.modelComment} 등록
+     *      summary: (Role - Member) Register ${model.modelComment} 
+     *      description: Register ${model.modelComment}
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer token"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: body
      *          name: body
-     *          description: 정보를 입력해주세요 자세한 사항은 model 클릭
+     *          description: Please enter information in model.
      *          required: true
      *          schema:
      *            $ref: '#/definitions/${model.modelName}'
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.post(\`\${this.path}/register\`, verifyToken, validator.body(${model.modelName}Schema), this.${model.modelName}Controller.create);
 
@@ -58,30 +58,30 @@ class ${capitalizeFirstLetter(model.modelName)}Route implements Route {
      *    get:
      *      tags:
      *      - ${model.modelName}
-     *      summary: (권한 - 로그인) ${model.modelComment} 리스트
-     *      description: ${model.modelComment} 리스트
+     *      summary: (Role - Member) List ${model.modelComment}
+     *      description: List ${model.modelComment}
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer {token}"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: query
      *          name: page
-     *          description: 페이지 번호 page 없으면 전체
+     *          description: page number (Default Full Data)
      *        - in: query
      *          name: limit
-     *          description: 한 페이지에 보여질 갯수 기본값 15개
+     *          description: page number (15 default values)
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.get(\`\${this.path}/list\`, verifyToken, this.${model.modelName}Controller.list);
 
@@ -91,14 +91,14 @@ class ${capitalizeFirstLetter(model.modelName)}Route implements Route {
      *    get:
      *      tags:
      *      - ${model.modelName}
-     *      summary: (권한 - 로그인) ${model.modelComment} 상세보기
-     *      description: ${model.modelComment} 상세보기
+     *      summary: (Role - Member) details ${model.modelComment}
+     *      description: details ${model.modelComment}
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer {token}"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: query
      *          name: id
@@ -106,13 +106,13 @@ class ${capitalizeFirstLetter(model.modelName)}Route implements Route {
      *          description: ${model.modelName} id
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.get(\`\${this.path}/detail\`, verifyToken, this.${model.modelName}Controller.detail);
 
@@ -122,14 +122,14 @@ class ${capitalizeFirstLetter(model.modelName)}Route implements Route {
      *    put:
      *      tags:
      *      - ${model.modelName}
-     *      summary: (권한 - 로그인) ${model.modelComment} 변경
-     *      description: ${model.modelComment} 변경
+     *      summary: (Role - Member) update ${model.modelComment}
+     *      description: update ${model.modelComment}
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer token"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: query
      *          name: id
@@ -137,19 +137,19 @@ class ${capitalizeFirstLetter(model.modelName)}Route implements Route {
      *          description: ${model.modelName} id
      *        - in: body
      *          name: body
-     *          description: 정보를 입력해주세요 자세한 사항은 model 클릭
+     *          description: Please enter information in model.
      *          required: true
      *          schema:
      *            $ref: '#/definitions/${model.modelName}'
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.put(\`\${this.path}/update\`, verifyToken, validator.body(${model.modelName}UpdateSchema), this.${model.modelName}Controller.update);
 
@@ -159,14 +159,14 @@ class ${capitalizeFirstLetter(model.modelName)}Route implements Route {
      *    delete:
      *      tags:
      *      - ${model.modelName}
-     *      summary: (권한 - 로그인) ${model.modelComment} 삭제
-     *      description: ${model.modelComment} 삭제
+     *      summary: (Role - Member) delete ${model.modelComment}
+     *      description: delete ${model.modelComment}
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer token"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: query
      *          name: id
@@ -174,13 +174,13 @@ class ${capitalizeFirstLetter(model.modelName)}Route implements Route {
      *          required: true
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.delete(\`\${this.path}/remove\`, verifyToken, this.${model.modelName}Controller.delete);
   }

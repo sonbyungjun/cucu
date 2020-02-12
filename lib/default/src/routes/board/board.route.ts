@@ -22,30 +22,30 @@ class BoardRoute implements Route {
      *    post:
      *      tags:
      *      - board
-     *      summary: (권한 - 로그인) board 등록
-     *      description: board 등록
+     *      summary: (Role - Member) Register board
+     *      description: Register board
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer token"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: body
      *          name: body
-     *          description: 정보를 입력해주세요 자세한 사항은 model 클릭
+     *          description: Please enter information in model.
      *          required: true
      *          schema:
      *            $ref: '#/definitions/board'
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.post(`${this.path}/register`, verifyToken, validator.body(boardSchema), this.boardController.create);
 
@@ -55,30 +55,30 @@ class BoardRoute implements Route {
      *    get:
      *      tags:
      *      - board
-     *      summary: (권한 - 로그인) board 리스트
-     *      description: board 리스트
+     *      summary: (Role - Member) List board
+     *      description: List board
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer {token}"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: query
      *          name: page
-     *          description: 페이지 번호 page 없으면 전체
+     *          description: page number
      *        - in: query
      *          name: limit
-     *          description: 한 페이지에 보여질 갯수 기본값 15개
+     *          description: page limit
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.get(`${this.path}/list`, verifyToken, this.boardController.list);
 
@@ -88,14 +88,14 @@ class BoardRoute implements Route {
      *    get:
      *      tags:
      *      - board
-     *      summary: (권한 - 로그인) board 상세보기
-     *      description: board 상세보기
+     *      summary: (Role - Member) details board
+     *      description: details board
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer {token}"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: query
      *          name: id
@@ -103,13 +103,13 @@ class BoardRoute implements Route {
      *          description: board id
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.get(`${this.path}/detail`, verifyToken, this.boardController.detail);
 
@@ -119,14 +119,14 @@ class BoardRoute implements Route {
      *    put:
      *      tags:
      *      - board
-     *      summary: (권한 - 로그인) board 변경
-     *      description: board 변경
+     *      summary: (Role - Member) update board
+     *      description: update board
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer token"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: query
      *          name: id
@@ -134,19 +134,19 @@ class BoardRoute implements Route {
      *          description: board id
      *        - in: body
      *          name: body
-     *          description: 정보를 입력해주세요 자세한 사항은 model 클릭
+     *          description: Please enter information in model.
      *          required: true
      *          schema:
      *            $ref: '#/definitions/board'
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.put(`${this.path}/update`, verifyToken, validator.body(boardUpdateSchema), this.boardController.update);
 
@@ -156,14 +156,14 @@ class BoardRoute implements Route {
      *    delete:
      *      tags:
      *      - board
-     *      summary: (권한 - 로그인) board 삭제
-     *      description: board 삭제
+     *      summary: (Role - Member) delete board
+     *      description: delete board
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer token"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: query
      *          name: id
@@ -171,13 +171,13 @@ class BoardRoute implements Route {
      *          required: true
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
      *        203:
-     *          description: 데이터 없음.
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.delete(`${this.path}/remove`, verifyToken, this.boardController.delete);
   }

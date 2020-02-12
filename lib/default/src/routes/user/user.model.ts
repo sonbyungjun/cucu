@@ -13,16 +13,16 @@ import { AllowNull, Column, Comment, DataType, DefaultScope, Model, Table } from
   modelName: 'user',
   timestamps: true,
   paranoid: true,
-  comment: '사용자',
+  comment: 'users',
 })
 export default class User extends Model<User> {
 
-  @Comment('아이디')
+  @Comment('loginId')
   @AllowNull(false)
   @Column(DataType.STRING(45))
   loginId: string;
 
-  @Comment('비밀번호')
+  @Comment('password')
   @AllowNull(false)
   @Column(DataType.STRING(255))
   set password(val: string) {
@@ -32,7 +32,7 @@ export default class User extends Model<User> {
     }
   }
 
-  @Comment('이름 또는 닉네임')
+  @Comment('name')
   @AllowNull(false)
   @Column(DataType.STRING(15))
   name: string;

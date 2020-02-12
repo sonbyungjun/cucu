@@ -13,19 +13,19 @@ const fs = require('fs');
 const prompt = inquirer.createPromptModule();
 
 const modelQuestions = [
-  { type: 'input', message: '모델 이름을 입력해주세요.', name: 'modelName'},
-  { type: 'list', message: 'timestamp 여부', name: 'timestamp', choices: ['true', 'false']},
-  { type: 'list', message: 'paranoid 여부', name: 'paranoid', choices: ['true', 'false']},
-  { type: 'input', message: '코멘트를 입력해주세요.', name: 'modelComment'},
-  { type: 'input', message: '모델 멤버 갯수를 입력해주세요 (숫자만)', name: 'memberCount'},
+  { type: 'input', message: 'Please enter a model name', name: 'modelName'},
+  { type: 'list', message: 'Timestamp status', name: 'timestamp', choices: ['true', 'false']},
+  { type: 'list', message: 'Paranoid status', name: 'paranoid', choices: ['true', 'false']},
+  { type: 'input', message: 'Please enter a comment', name: 'modelComment'},
+  { type: 'input', message: 'Please enter the number of model members (number only)', name: 'memberCount'},
 ];
 
 const memberQuestions = [
-  { type: 'input', message: '멤버 이름을 입력해주세요.', name: 'name'},
-  { type: 'list', message: 'type 을 선택해주세요.', name: 'type', choices: ['string', 'number', 'boolean']},
-  { type: 'list', message: 'column type 을 선택해주세요', name: 'columnType', choices: ['STRING', 'INTEGER', 'BOOLEAN', 'TEXT', 'DATE']},
-  { type: 'list', message: 'NULL 여부', name: 'allowNull', choices: ['true', 'false']},
-  { type: 'input', message: '코멘트를 입력해주세요.', name: 'comment'},
+  { type: 'input', message: 'Please enter a member name.', name: 'name'},
+  { type: 'list', message: 'Please select type.', name: 'type', choices: ['string', 'number', 'boolean']},
+  { type: 'list', message: 'Select column type', name: 'columnType', choices: ['STRING', 'INTEGER', 'BOOLEAN', 'TEXT', 'DATE']},
+  { type: 'list', message: 'NULL status', name: 'allowNull', choices: ['true', 'false']},
+  { type: 'input', message: 'Please enter a comment', name: 'comment'},
 ];
 
 async function parse(model, member) {
@@ -36,7 +36,7 @@ async function parse(model, member) {
   const schemaFile = await schemaParse(model, member);
   const referenceFile = await referenceParse(model, member);
 
-  console.log('생성중...');
+  console.log('Generating...');
   fs.mkdirSync(`./src/routes/${model.modelName}`);
   fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.model.ts`, modelFile);
   fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.route.ts`, routerFile);
@@ -44,7 +44,7 @@ async function parse(model, member) {
   fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.service.ts`, serviceFile);
   fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.schema.ts`, schemaFile);
   fs.writeFileSync(`./src/routes/${model.modelName}/${model.modelName}.reference.ts`, referenceFile);
-  console.log('생성 완료!');
+  console.log('Create complete!');
 }
 
 module.exports = async function crudGenerator() {

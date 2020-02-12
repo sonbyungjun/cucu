@@ -21,7 +21,7 @@ class BoardService {
   public async detail(id: string): Promise<Board> {
     const board = await Board.findOneScope(id);
     if (!board) {
-      throw new HttpException(203, '없는 데이터입니다.');
+      throw new HttpException(203, 'missing data');
     }
     return board;
   };
@@ -30,7 +30,7 @@ class BoardService {
     const { id } = values;
     const board = await Board.findOneScope(id);
     if (!board) {
-      throw new HttpException(203, '없는 데이터입니다.');
+      throw new HttpException(203, 'missing data');
     }
     await board.update(values);
   };
@@ -38,7 +38,7 @@ class BoardService {
   public async remove(id: string): Promise<void> {
     const board = await Board.findOneScope(id);
     if (!board) {
-      throw new HttpException(203, '없는 데이터입니다.');
+      throw new HttpException(203, 'missing data');
     }
     await board.destroy();
   };
