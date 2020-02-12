@@ -15,7 +15,7 @@ const options = {
     info: {
       title: `${process.env.PROJECT_NAME} API`,
       version: '1.0.0',
-      description: `${process.env.PROJECT_NAME} 의 API 문서입니다.`,
+      description: `API document of the ${process.env.PROJECT_NAME}`,
     },
     host: `${process.env.SERVER_IP}:${process.env.PORT || 3000}`,
     basePath: '/',

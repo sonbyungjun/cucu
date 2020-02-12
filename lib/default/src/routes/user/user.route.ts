@@ -22,26 +22,26 @@ class UserRoute implements Route {
      *    get:
      *      tags:
      *      - user
-     *      summary: (권한 - 일반사용자) 유저정보
-     *      description: 유저정보
+     *      summary: (Role - Member) user info
+     *      description: user info
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer {token}"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *          schema:
      *            $ref: "#/definitions/userInfo"
-     *        203:
-     *          description: 데이터 없음.
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
+     *        203:
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.get(`${this.path}/info`, verifyToken, this.userController.info);
 
@@ -51,32 +51,32 @@ class UserRoute implements Route {
      *    put:
      *      tags:
      *      - user
-     *      summary: (권한 - 일반사용자) 유저 업데이트
-     *      description: 유저 업데이트
+     *      summary: (Role - Member) update user
+     *      description: update user
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer {token}"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *        - in: body
      *          name: body
-     *          description: 정보를 입력해주세요 자세한 사항은 model 클릭
+     *          description: Please enter information in model.
      *          required: true
      *          schema:
      *            $ref: '#/definitions/userUpdate'
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *          schema:
      *            $ref: '#/definitions/success'
-     *        203:
-     *          description: 데이터 없음.
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
+     *        203:
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.put(`${this.path}/update`, verifyToken, validator.body(userUpdateSchema), this.userController.userUpdate);
 
@@ -86,24 +86,24 @@ class UserRoute implements Route {
      *    delete:
      *      tags:
      *      - user
-     *      summary: (권한 - 일반사용자) 회원탈퇴
-     *      description: 회원탈퇴
+     *      summary: (Role - Member) withdrawal
+     *      description: withdrawal
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: header
      *          name: authorization
-     *          description: 로그인 시 발급 받았던 token, "bearer {token}"으로 입력
+     *          description: Authorization "bearer token"
      *          required: true
      *      responses:
      *        200:
-     *          description: 성공
-     *        203:
-     *          description: 데이터 없음.
+     *          description: success
      *        202:
-     *          description: 입력 형식 에러.
+     *          description: Validation Error
+     *        203:
+     *          description: missing data
      *        209:
-     *          description: 기타 에러
+     *          description: Other error
      */
     this.router.delete(`${this.path}/withdrawal`, verifyToken, this.userController.withdrawal);
   }

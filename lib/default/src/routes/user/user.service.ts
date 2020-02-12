@@ -15,7 +15,7 @@ class UserService {
   public async detail(id: string): Promise<User> {
     let user = await User.findOneAndScope(id);
     if (!user) {
-      throw new HttpException(203, '없는 데이터 입니다.');
+      throw new HttpException(203, 'missing data');
     }
     return user;
   };
@@ -23,7 +23,7 @@ class UserService {
   public async findByUpdate({ userId, ...values }: IUserUpdate): Promise<User> {
     const user = await User.findOneAndScope(userId);
     if (!user) {
-      throw new HttpException(203, '없는 데이터 입니다.');
+      throw new HttpException(203, 'missing data');
     }
     return user.update(values);
   };
@@ -31,7 +31,7 @@ class UserService {
   public async del({ userId }: IUserUpdate): Promise<void> {
     const exUser = await User.findByPk(userId);
     if (!exUser) {
-      throw new HttpException(203,'없는 데이터 입니다.');
+      throw new HttpException(203,'missing data');
     }
     await exUser.destroy();
   };

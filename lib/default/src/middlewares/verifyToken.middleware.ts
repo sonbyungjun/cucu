@@ -10,11 +10,11 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction) => 
       return next(authError);
     }
     if (!user) {
-      next(new HttpException(400, info.message === 'No auth token' ? '로그인 후 이용해주세요' : info.message));
+      next(new HttpException(400, info.message === 'No auth token' ? 'Please sign in and use it.' : info.message));
     }
     const exUser: UserModel = await UserModel.findOne({ where: { id: user.id } });
     if (!exUser) {
-      next(new HttpException(203, '유저 정보가 없습니다.'));
+      next(new HttpException(203, 'User information is missing.'));
     }
     req.user = user;
     return next();

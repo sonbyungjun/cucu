@@ -6,13 +6,13 @@
  *   properties:
  *     loginId:
  *       type: string
- *       description: 아이디
+ *       description: loginId
  *     id:
  *       type: string
- *       description: user Id
+ *       description: id
  *     name:
  *       type: string
- *       description: 이름 또는 닉네임
+ *       description: name
  */
 
 /**
@@ -23,8 +23,8 @@
  *   properties:
  *     password:
  *       type: string
- *       description: 비밀번호
+ *       description: password
  *     name:
  *       type: string
- *       description: 이름
+ *       description: name
  */

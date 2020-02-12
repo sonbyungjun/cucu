@@ -6,13 +6,13 @@
  *   properties:
  *     loginId:
  *       type: string
- *       description: 로그인 ID
+ *       description: Login ID
  *     password:
  *       type: string
- *       description: 패스워드 8 ~ 13자
+ *       description: Passwords 8 to 13 characters
  *     name:
  *       type: string
- *       description: 이름 또는 닉네임
+ *       description: Name
  */
 
 /**
@@ -26,8 +26,8 @@
  *    properties:
  *      loginId:
  *        type: string
- *        description: 로그인
+ *        description: Login ID
  *      password:
  *        type: string
- *        description: 패스워드
+ *        description: Passwords
  */

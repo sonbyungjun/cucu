@@ -22,26 +22,26 @@ class AuthRoute implements Route {
      *    post:
      *      tags:
      *      - auth
-     *      summary: (권한 - 없음) 회원가입
-     *      description: 회원가입 입니다.
+     *      summary: (Role - None) SignUp
+     *      description: SignUp
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: body
      *          name: body
-     *          description: 정보를 입력해주세요 자세한 사항은 model 클릭
+     *          description: Please enter your membership information.
      *          required: true
      *          schema:
      *            $ref: '#/definitions/user'
      *      responses:
      *        200:
-     *          description: 성공
+     *          description: success
      *          schema:
      *            $ref: '#/definitions/success'
      *        202:
-     *          description: 입력 형식 에러
+     *          description: Validation Error
      *        209:
-     *          description: 회원가입 실패
+     *          description: failure
      */
     this.router.post(`${this.path}/join`, validator.body(userSchema), this.authController.join);
 
@@ -51,22 +51,22 @@ class AuthRoute implements Route {
      *    post:
      *      tags:
      *      - auth
-     *      summary: (권한 - 없음) 로그인 (10시간 후 만료됩니다.)
-     *      description: 로그인 입니다.
+     *      summary: (Role - None) loginIn
+     *      description: loginIn
      *      produces:
      *        - applicaion/json
      *      parameters:
      *        - in: body
      *          name: body
-     *          description: 로그인 아이디와 패스워드를 입력해주세요.
+     *          description: Please enter your ID and password.
      *          required: true
      *          schema:
      *            $ref: '#/definitions/login'
      *      responses:
      *        200:
-     *          description: 성공 (토큰 발급)
+     *          description: success
      *        400:
-     *          description: 아이디 및 비밀번호 불일치, 입력값이 없음
+     *          description: Validation Error
      */
     this.router.post(`${this.path}/login`, this.authController.login);
   }
