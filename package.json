@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "cucu-starter": "bin/cli.js"
+    "cucu-generator": "bin/cli.js"
   },
   "dependencies": {
     "chalk": "^3.0.0",
